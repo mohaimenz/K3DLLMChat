@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: llm-config
+  namespace: llm-sidecar
+data:
+  MODEL_ID: "Qwen/Qwen2.5-0.5B-Instruct"
+  SYSTEM_MESSAGE: "You are a helpful assistant. Answer clearly and directly. If unsure, say so."
+  INFERENCE_HOST: "localhost"
+  INFERENCE_PORT: "8001"
