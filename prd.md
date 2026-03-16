@@ -1,4 +1,3 @@
-```markdown
 # PRD — MVP Implementation (Final)
 
 # Local LLM Serving on k3d using Transformers (CPU) + FastAPI Sidecar + React Frontend
