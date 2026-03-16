@@ -1,9 +1,3 @@
-Below is the **fully revised PRD in Markdown**, incorporating all clarifications (registry translation, script workflow, CORS, PVC lifecycle, model configuration, dependencies, debugging, etc.).
-
-You can **save this directly as `prd.md`**.
-
----
-
 ```markdown
 # PRD — MVP Implementation (Final)
 
@@ -638,7 +632,3 @@ kubectl
 bash
 curl
 ```
-
----
-
-End of Document
