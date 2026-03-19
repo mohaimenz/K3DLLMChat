@@ -1,5 +1,3 @@
-# PRD — MVP Implementation (Final)
-
 # Local LLM Serving on k3d using Transformers (CPU) + FastAPI Sidecar + React Frontend
 
 This document defines the MVP implementation for a **local AI inference system running inside a k3d Kubernetes cluster**.
