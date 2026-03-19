@@ -2,8 +2,8 @@
 set -e
 
 # Build images locally for k3d
-IMAGE_PREFIX="llm-mvp"
-CLUSTER="llm-mvp"
+IMAGE_PREFIX="k3d-llm-sidecar"
+CLUSTER="k3d-llm-sidecar-cluster"
 
 echo "Building Docker images for k3d..."
 

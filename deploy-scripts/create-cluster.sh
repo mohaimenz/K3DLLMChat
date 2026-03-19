@@ -1,7 +1,7 @@
 #!/bin/bash
 set -e
 
-CLUSTER_NAME="llm-mvp"
+CLUSTER_NAME="k3d-llm-sidecar-cluster"
 AGENTS=1
 
 if k3d cluster list | grep -q "${CLUSTER_NAME}"; then

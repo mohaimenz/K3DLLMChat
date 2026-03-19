@@ -1,6 +1,6 @@
 #!/bin/bash
 
-NAMESPACE="llm-sidecar"
+NAMESPACE="k3d-llm-sidecar"
 
 echo "Setting up port forwards..."
 echo ""

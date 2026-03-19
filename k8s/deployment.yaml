@@ -2,7 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: inference-api
-  namespace: llm-sidecar
+  namespace: k3d-llm-sidecar
 spec:
   replicas: 1
   selector:
@@ -15,7 +15,7 @@ spec:
     spec:
       initContainers:
         - name: model-downloader
-          image: llm-mvp/model-downloader:latest
+          image: k3d-llm-sidecar/model-downloader:latest
           imagePullPolicy: Never
           volumeMounts:
             - name: model-cache
@@ -24,7 +24,7 @@ spec:
             - name: MODEL_ID
               valueFrom:
                 configMapKeyRef:
-                  name: llm-config
+                  name: k3d-llm-config
                   key: MODEL_ID
             - name: HF_HOME
               value: "/models/hf"
@@ -39,7 +39,7 @@ spec:
 
       containers:
         - name: inference
-          image: llm-mvp/inference:latest
+          image: k3d-llm-sidecar/inference:latest
           imagePullPolicy: Never
           ports:
             - name: inference
@@ -51,7 +51,7 @@ spec:
             - name: MODEL_ID
               valueFrom:
                 configMapKeyRef:
-                  name: llm-config
+                  name: k3d-llm-config
                   key: MODEL_ID
             - name: HF_HOME
               value: "/models/hf"
@@ -87,7 +87,7 @@ spec:
             failureThreshold: 3
 
         - name: fastapi-sidecar
-          image: llm-mvp/fastapi-api:latest
+          image: k3d-llm-sidecar/fastapi-api:latest
           imagePullPolicy: Never
           ports:
             - name: api
@@ -99,22 +99,22 @@ spec:
             - name: INFERENCE_HOST
               valueFrom:
                 configMapKeyRef:
-                  name: llm-config
+                  name: k3d-llm-config
                   key: INFERENCE_HOST
             - name: INFERENCE_PORT
               valueFrom:
                 configMapKeyRef:
-                  name: llm-config
+                  name: k3d-llm-config
                   key: INFERENCE_PORT
             - name: MODEL_ID
               valueFrom:
                 configMapKeyRef:
-                  name: llm-config
+                  name: k3d-llm-config
                   key: MODEL_ID
             - name: SYSTEM_MESSAGE
               valueFrom:
                 configMapKeyRef:
-                  name: llm-config
+                  name: k3d-llm-config
                   key: SYSTEM_MESSAGE
           resources:
             requests:

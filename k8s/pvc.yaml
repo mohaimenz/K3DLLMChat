@@ -2,7 +2,7 @@ apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
   name: model-cache-pvc
-  namespace: llm-sidecar
+  namespace: k3d-llm-sidecar
 spec:
   accessModes:
     - ReadWriteOnce

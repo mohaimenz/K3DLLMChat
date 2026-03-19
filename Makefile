@@ -43,32 +43,32 @@ port-forward:
 	@./deploy-scripts/port-forward.sh
 
 logs-inference:
-	@kubectl logs -n llm-sidecar -f -l app=inference-api -c inference
+	@kubectl logs -n k3d-llm-sidecar -f -l app=inference-api -c inference
 
 logs-fastapi:
-	@kubectl logs -n llm-sidecar -f -l app=inference-api -c fastapi-sidecar
+	@kubectl logs -n k3d-llm-sidecar -f -l app=inference-api -c fastapi-sidecar
 
 logs-frontend:
-	@kubectl logs -n llm-sidecar -f -l app=frontend
+	@kubectl logs -n k3d-llm-sidecar -f -l app=frontend
 
 logs-downloader:
-	@kubectl logs -n llm-sidecar -l app=inference-api -c model-downloader --previous
+	@kubectl logs -n k3d-llm-sidecar -l app=inference-api -c model-downloader --previous
 
 status:
 	@echo "Cluster status:"
 	@kubectl get nodes
 	@echo ""
 	@echo "Pod status:"
-	@kubectl get pods -n llm-sidecar -o wide
+	@kubectl get pods -n k3d-llm-sidecar -o wide
 	@echo ""
 	@echo "Services:"
-	@kubectl get services -n llm-sidecar
+	@kubectl get services -n k3d-llm-sidecar
 	@echo ""
 	@echo "PVCs:"
-	@kubectl get pvc -n llm-sidecar
+	@kubectl get pvc -n k3d-llm-sidecar
 
 shell-backend:
-	@kubectl exec -it -n llm-sidecar -l app=inference-api -c fastapi-sidecar -- /bin/bash || kubectl exec -it -n llm-sidecar -l app=inference-api -c fastapi-sidecar -- /bin/sh
+	@kubectl exec -it -n k3d-llm-sidecar -l app=inference-api -c fastapi-sidecar -- /bin/bash || kubectl exec -it -n k3d-llm-sidecar -l app=inference-api -c fastapi-sidecar -- /bin/sh
 
 shell-frontend:
-	@kubectl exec -it -n llm-sidecar -l app=frontend -- /bin/bash || kubectl exec -it -n llm-sidecar -l app=frontend -- /bin/sh
+	@kubectl exec -it -n k3d-llm-sidecar -l app=frontend -- /bin/bash || kubectl exec -it -n k3d-llm-sidecar -l app=frontend -- /bin/sh

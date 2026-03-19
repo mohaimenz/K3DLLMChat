@@ -3,7 +3,7 @@ set -e
 
 echo "Deploying Kubernetes manifests..."
 
-NAMESPACE="llm-sidecar"
+NAMESPACE="k3d-llm-sidecar"
 
 # Create namespace
 echo "Creating namespace: ${NAMESPACE}"

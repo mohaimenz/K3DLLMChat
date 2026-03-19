@@ -1,10 +1,10 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: llm-config
-  namespace: llm-sidecar
+  name: k3d-llm-config
+  namespace: k3d-llm-sidecar
 data:
   MODEL_ID: "Qwen/Qwen2.5-0.5B-Instruct"
-  SYSTEM_MESSAGE: "You are a helpful assistant. Answer clearly and directly. If unsure, say so."
+  SYSTEM_MESSAGE: "You are a helpful assistant. Answer in 1-2 sentences only. Be concise and brief."
   INFERENCE_HOST: "localhost"
   INFERENCE_PORT: "8001"
